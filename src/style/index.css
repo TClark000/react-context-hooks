@@ -1,0 +1,72 @@
+html,
+body {
+    height: 100%;
+}
+
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-body{
+  min-height: 90vh;
+  flex: 1 0 auto;
+}
+
+.ui.basic.segment.balance{
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 12px;
+  font-size: 1em;
+  font-weight: lighter;
+}
+
+.content-accountName{
+  flex: 1 0 auto;
+}
+
+.content-balance-title{
+  flex: 2 0 auto;
+}
+
+.content-balance-number{
+  font-size: 2.25em;
+  font-weight: bold;
+  line-height: 1.6em;
+  flex: 0 0 auto;
+}
+
+.ui.segment.basic.accountNameInput{
+  display: flex;
+  flex-direction: column;
+}
+
+.content-footer{
+  min-height: 10vh;
+  flex-shrink: 0;
+}
+
+a.item{
+  width: 110px;
+}
+
+.ui.basic.menu.ui.inverted{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.ui.inverted.menu a.item:hover{
+  color: rgb(241, 219, 161);
+}
+
+#active-tab{
+  color: goldenrod;
+}
+
+/* .ui.inverted.menu a.item:focus{
+  color: goldenrod;
+} */
