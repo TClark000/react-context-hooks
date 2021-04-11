@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# React App with Context and Hooks
+> A simple React app that manages state with Context and Hooks.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[React hosted on Netlify] https://react-contexthooks-c3c030.netlify.app/
 
-## Available Scripts
+[a similar app built with React Native hosted on Expo Snack] https://snack.expo.io/@teresajclark/41bb0a
 
-In the project directory, you can run:
+## Table of contents
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Code Example](#code-example)
+* [Status](#status)
+* [Contact](#contact)
 
-### `yarn start`
+## Technologies
+* React
+* UI Semantic
+* Netlify
+----
+* React Native
+* UI Semantic
+* Snack Expo 
+
+## Setup
+
+`yarn start` run the development server
+
+`yarn build` create a build directory
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Continuous Deployment with git and GitHub:
+[React hosted on Netlify] https://react-contexthooks-c3c030.netlify.app/
 
-### `yarn test`
+[a similar app built with React Native hosted on Expo Snack] https://snack.expo.io/@teresajclark/41bb0a
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Code Example
 
-### `yarn build`
+Custom hook for form management:
+```js
+export default function useForm(){
+  const [ accountName, setAccountName ] = React.useContext(AccountContext)
+  const [inputs, setInputs ] = React.useState({ accountName: accountName })
+  const [path, setPath ] = React.useState('/account')
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  const handleSubmit = (event) => {
+    if (event) {
+      event.preventDefault()
+    }
+    setAccountName(inputs.accountName)
+    setPath('/')
+  }
+  const handleInputChange = (event) => {
+    event.persist()
+    setInputs(inputs => ({...inputs, [event.target.name]: event.target.value}))
+  }
+  return {
+    inputs,
+    path,
+    handleSubmit,
+    handleInputChange
+  }
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Status
+Project is: _finished_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+Created by [@teresaclark](https://github.com/tclark000/)
